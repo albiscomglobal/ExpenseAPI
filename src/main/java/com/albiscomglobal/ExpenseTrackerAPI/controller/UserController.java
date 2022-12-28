@@ -18,19 +18,19 @@ public class UserController {
     private UserService userService;
 
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> readUser(@PathVariable Long id){
-return new ResponseEntity<User>(userService.readUSer(id), HttpStatus.OK);
+    @GetMapping("/profile")
+    public ResponseEntity<User> readUser(){
+return new ResponseEntity<User>(userService.readUSer(), HttpStatus.OK);
     }
 
-    @PutMapping("/users/{id}")
-    public ResponseEntity<User> update(@RequestBody UserModel user, @PathVariable Long id){
-        return new ResponseEntity<User>( userService.update(user, id), HttpStatus.OK);
+    @PutMapping("/profile")
+    public ResponseEntity<User> update(@RequestBody UserModel user){
+        return new ResponseEntity<User>( userService.update(user), HttpStatus.OK);
     }
 
-    @DeleteMapping("/users/{id}")
-    public ResponseEntity<HttpStatus> delete (@PathVariable Long id) throws ResourceNotFoundException{
-        userService.delete(id);
+    @DeleteMapping("/deactivate")
+    public ResponseEntity<HttpStatus> delete () throws ResourceNotFoundException{
+        userService.delete();
         return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
     }
 }
