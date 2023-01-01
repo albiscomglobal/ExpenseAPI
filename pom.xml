@@ -15,6 +15,9 @@
 	<description>Spring Rest API</description>
 	<properties>
 		<java.version>17</java.version>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,6 +67,7 @@
 	</dependencies>
 
 	<build>
+        <finalName>ExpenseTrackerAPI</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
